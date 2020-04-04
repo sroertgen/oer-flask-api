@@ -2,11 +2,7 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 from flask_restful import Api
 from flask_jwt_extended import JWTManager
-from user import UserRegister, UserData
-from sitemaps import Sitemap, Sitemaps
 from vocabs import Vocab
-from likes import Like, Likes
-from security import Login
 from gsheets import Gsheet
 from competences import Frameworks
 
@@ -25,13 +21,6 @@ jwt = JWTManager(app)
 # Database
 
 # Add Classes to API
-api.add_resource(Login, '/auth')
-api.add_resource(Sitemap, '/sitemap/<string:name>')
-api.add_resource(Sitemaps, '/sitemaps')
-api.add_resource(UserRegister, '/register')
-api.add_resource(UserData, '/user/<string:_id>')
-api.add_resource(Like, '/like')
-api.add_resource(Likes, '/likes/<string:user_id>')
 api.add_resource(Vocab, '/vocab/<string:name>')
 api.add_resource(Gsheet, '/gsheets')
 api.add_resource(Frameworks, '/frameworks')
