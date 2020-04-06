@@ -2,7 +2,6 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 from flask_restful import Api
 from vocabs import Vocab
-from gsheets import Gsheet
 from frameworks import Frameworks
 
 # config
@@ -17,7 +16,6 @@ CORS(app, resources={r'/*': {'origins': '*'}})
 
 # Add Classes to API
 api.add_resource(Vocab, '/vocab/<string:name>')
-api.add_resource(Gsheet, '/gsheets')
 api.add_resource(Frameworks, '/frameworks')
 
 # Run app
