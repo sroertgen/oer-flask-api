@@ -34,6 +34,18 @@ It returns a JSON in tree strucutre. It providesthe following informations:
 - `associationType`: describes association to another item
   - `destinationNodeURI`: provides `title`, `identifier` and `uri` of the associated item
 
-## API calls for OpenSalt
+### /vocab/<string:name>
+
+This endpooint can be used to get defined vocabulary.
+
+Current implemented vocabs are:
+
+- `educationalRole`: <https://www.dublincore.org/vocabs/educationalAudienceRole.ttl>
+- `alignmentType`: <https://www.dublincore.org/vocabs/alignmentType.ttl>
+- `educationalUse`: <https://www.dublincore.org/vocabs/educationalUse.ttl>
+- `interactivityType`: <https://www.dublincore.org/vocabs/interactivityType.ttl>
+- `learningResourceType`: <https://raw.githubusercontent.com/dini-ag-kim/hcrt/master/hcrt.ttl>
+
+## API documentation for OpenSalt
 
 - [Documentation](https://opensalt.net/api/doc/#/)
