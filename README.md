@@ -3,7 +3,8 @@
 This container will build up a flask app to handle REST-API calls.
 Its purpose is mainly to get SKOS vocabulary and parse competence frameworks.
 It is closley developed to serve:
-  - [OER-Metadata-Editor](https://github.com/sroertgen/oer-metadata-editor)
+
+- [OER-Metadata-Editor](https://github.com/sroertgen/oer-metadata-editor)
 
 ## Requirements
 
@@ -13,7 +14,21 @@ It is closley developed to serve:
 
 ## How to use
 
+The API listens on port 5000.
+
+### Run local
+
 - run app locally with: `python app.py`
+
+### Run with docker
+
+This repo is connected to DockerHub and gets build automatically. You can use the latest version as a docker container with:
+
+- `docker pull laocoon667/oer-flask-api:latest`
+
+Then run with:
+
+- `docker run --rm -d  -p 5000:5000/tcp laocoon667/oer-flask-api:latest`
 
 ## Endpoints
 
