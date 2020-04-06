@@ -26,6 +26,7 @@ class Vocab(Resource):
     for item in y:
       try:
           d = {}
+          d['id'] = item['@id']
           d['label'] = item['http://www.w3.org/2004/02/skos/core#prefLabel'][0]['@value']
           try:
             d['description'] = item['http://www.w3.org/2004/02/skos/core#definition'][0]['@value']

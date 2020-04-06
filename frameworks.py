@@ -22,12 +22,21 @@ class Frameworks(Resource):
       r = requests.get(base_url + '/CFPackages/' + item)
 
       competence_framework = []
+      associations = []
+
       for item in r.json()['CFAssociations']:
         if item['associationType'] == 'isChildOf':
           competence_framework.append(
             (item['destinationNodeURI']['identifier'],
             (item['originNodeURI']['identifier']))
             )
+        else:
+          association = {
+                'associationType': item['associationType'],
+                'originNodeURI': item['originNodeURI'],
+                'destinationNodeURI': item['destinationNodeURI']
+            }
+          associations.append(association)
 
       parents, children = zip(*competence_framework)
       root_nodes = {x for x in parents if x not in children}
@@ -59,11 +68,18 @@ class Frameworks(Resource):
                 d['creator'] = r.json()['creator']
                 d['language'] = r.json()['language']
           else:
+            # this is a items URI
             d['id'] = r.json()['identifier']
             d['label'] = r.json()['humanCodingScheme']
             d['educationalFramework'] = r.json()['CFDocumentURI']['title']
             d['educationLevel'] = r.json()['educationLevel']
             d['fullStatement'] = r.json()['fullStatement']
+
+          for item in associations:
+                if item['originNodeURI']['identifier'] == d['id']:
+                    d['associationType'] = item['associationType']
+                    d['destinationNodeURI'] = item['destinationNodeURI']
+
         except:
           pass
         children = get_children(node)
