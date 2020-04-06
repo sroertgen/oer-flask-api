@@ -35,7 +35,7 @@ class Vocab(Resource):
       except:
           print("not there")
       # only append dict if not empty
-      if d:
+      if d and 'label' in d.keys():
         vocabs.append(d)
     return vocabs
 
