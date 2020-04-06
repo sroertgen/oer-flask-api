@@ -1,11 +1,9 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
 from flask_restful import Api
-from flask_jwt_extended import JWTManager
 from vocabs import Vocab
 from gsheets import Gsheet
-from competences import Frameworks
-
+from frameworks import Frameworks
 
 # config
 app = Flask(__name__)
@@ -14,9 +12,6 @@ api = Api(app)
 
 # enable CORS
 CORS(app, resources={r'/*': {'origins': '*'}})
-
-# creates /auth path
-jwt = JWTManager(app)
 
 # Database
 
