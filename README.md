@@ -8,8 +8,8 @@ It is closley developed to serve:
 
 ## Requirements
 
-- Make a virtual environemnt: `python -m venv oerhoernchen`
-- activate it: `source oerhoernchen/bin/activate`
+- Make a virtual environemnt: `python -m venv oer-flask-api`
+- activate it: `source oer-flask-api/bin/activate`
 - Install requirements with `pip install -r requirements.txt`
 
 ## How to use
