@@ -5,7 +5,9 @@ import rdflib
 # Use the parse functions to point directly at the URI
 
 uris = {
-    'educationalRole': 'https://www.dublincore.org/vocabs/educationalAudienceRole.ttl',
+    'educationalRole': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/educationalAudienceRole.ttl',
+    ## LRMI path for now pointing to educational Role until vocab is ready
+    'intendedEndUserRole': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/educationalAudienceRole.ttl',
     'alignmentType': 'https://www.dublincore.org/vocabs/alignmentType.ttl',
     'educationalUse': 'https://www.dublincore.org/vocabs/educationalUse.ttl',
     'interactivityType': 'https://www.dublincore.org/vocabs/interactivityType.ttl',
@@ -25,18 +27,46 @@ class Vocab(Resource):
 
     for item in y:
       try:
-          d = {}
-          d['id'] = item['@id']
-          d['label'] = item['http://www.w3.org/2004/02/skos/core#prefLabel'][0]['@value']
-          try:
-            d['description'] = item['http://www.w3.org/2004/02/skos/core#definition'][0]['@value']
-          except:
-            d['description'] = ''
+        d = {}
+        altId = []
+        d['id'] = item['@id']
+        label_de = next(
+            (item['@value'] for item in item['http://www.w3.org/2004/02/skos/core#prefLabel'] if item['@language'] == "de"), None)
+        label_en = next(
+            (item['@value'] for item in item['http://www.w3.org/2004/02/skos/core#prefLabel'] if item['@language'] == "en"), None)
+        if label_de is not None:
+          d['label'] = label_de
+          altId.append(label_de)
+          if label_en is not None:
+            altId.append(label_en)
+        else:
+          d['label'] = label_en
+
+        try:
+          description_de = next(
+              (item['@value'] for item in item['http://www.w3.org/2004/02/skos/core#definition'] if item['@language'] == "de"), None)
+          description_en = next(
+              (item['@value'] for item in item['http://www.w3.org/2004/02/skos/core#definition'] if item['@language'] == "en"), None)
+          if description_de is not None:
+            d['description'] = description_de
+          else:
+            d['description'] = description_en
+        except:
+          d['description'] = ''
+          print('no description found')
+          pass
+
+        try:
+          for altLabel in item['http://www.w3.org/2004/02/skos/core#altLabel']:
+              altId.append(altLabel['@value'])
+          d['altId'] = altId
+        except:
+          d['altId'] = ''
+          pass
       except:
-          print("not there")
-      # only append dict if not empty
+          pass
       if d and 'label' in d.keys():
-        vocabs.append(d)
+          vocabs.append(d)
     return vocabs
 
   def get(self, name):
