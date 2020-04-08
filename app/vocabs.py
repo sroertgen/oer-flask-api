@@ -8,9 +8,9 @@ uris = {
     'educationalRole': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/educationalAudienceRole.ttl',
     ## LRMI path for now pointing to educational Role until vocab is ready
     'intendedEndUserRole': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/educationalAudienceRole.ttl',
-    'alignmentType': 'https://www.dublincore.org/vocabs/alignmentType.ttl',
-    'educationalUse': 'https://www.dublincore.org/vocabs/educationalUse.ttl',
-    'interactivityType': 'https://www.dublincore.org/vocabs/interactivityType.ttl',
+    'alignmentType': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/alignmentType.ttl',
+    'educationalUse': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/educationalUse.ttl',
+    'interactivityType': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/interactivityType.ttl',
     'learningResourceType': 'https://raw.githubusercontent.com/dini-ag-kim/hcrt/master/hcrt.ttl'
 }
 
