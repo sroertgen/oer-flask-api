@@ -9,6 +9,7 @@ uris = {
     'category': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/category.ttl',
     'discipline': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/discipline.ttl',
     'educationalRole': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/educationalAudienceRole.ttl',
+    'educationalContext': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/educationalContext.ttl',
     'educationalUse': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/educationalUse.ttl',
     'intendedEndUserRole': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/intendedEndUserRole.ttl',
     'interactivityType': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/interactivityType.ttl',
