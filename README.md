@@ -55,11 +55,16 @@ This endpooint can be used to get defined vocabulary.
 
 Current implemented vocabs are:
 
-- `educationalRole`: <https://www.dublincore.org/vocabs/educationalAudienceRole.ttl>
-- `alignmentType`: <https://www.dublincore.org/vocabs/alignmentType.ttl>
-- `educationalUse`: <https://www.dublincore.org/vocabs/educationalUse.ttl>
-- `interactivityType`: <https://www.dublincore.org/vocabs/interactivityType.ttl>
-- `learningResourceType`: <https://raw.githubusercontent.com/dini-ag-kim/hcrt/master/hcrt.ttl>
+- `/alignmentType`
+- `/discipline`
+- `/educationalRole`
+- `/educationalUse`
+- `/intendedEndUserRole`
+- `/interactivityType`
+- `/learningResourceType`
+- `/lifecycleContributeRole`
+- `/rightsCopyrightAndOtherRestrictions`
+- `/rightsCost`
 
 ## API documentation for OpenSalt
 

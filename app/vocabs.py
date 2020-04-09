@@ -5,13 +5,16 @@ import rdflib
 # Use the parse functions to point directly at the URI
 
 uris = {
-    'educationalRole': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/educationalAudienceRole.ttl',
-    ## LRMI path for now pointing to educational Role until vocab is ready
-    'intendedEndUserRole': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/educationalAudienceRole.ttl',
     'alignmentType': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/alignmentType.ttl',
+    'discipline': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/discipline.ttl',
+    'educationalRole': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/educationalAudienceRole.ttl',
     'educationalUse': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/educationalUse.ttl',
+    'intendedEndUserRole': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/intendedEndUserRole.ttl',
     'interactivityType': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/interactivityType.ttl',
-    'learningResourceType': 'https://raw.githubusercontent.com/dini-ag-kim/hcrt/master/hcrt.ttl'
+    'learningResourceType': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/interlearningResourceType.ttl',
+    'lifecycleContributeRole': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/lifecycleContributeRole.ttl',
+    'rightsCopyrightAndOtherRestrictions': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/rightsCopyrightAndOtherRestrictions.ttl',
+    'rightsCost': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/rightsCost.ttl'
 }
 
 
@@ -30,27 +33,25 @@ class Vocab(Resource):
         d = {}
         altId = []
         d['id'] = item['@id']
+        label = []
         label_de = next(
-            (item['@value'] for item in item['http://www.w3.org/2004/02/skos/core#prefLabel'] if item['@language'] == "de"), None)
+            (item for item in item['http://www.w3.org/2004/02/skos/core#prefLabel'] if item['@language'] == "de"), None)
         label_en = next(
-            (item['@value'] for item in item['http://www.w3.org/2004/02/skos/core#prefLabel'] if item['@language'] == "en"), None)
-        if label_de is not None:
-          d['label'] = label_de
-          altId.append(label_de)
-          if label_en is not None:
-            altId.append(label_en)
-        else:
-          d['label'] = label_en
+            (item for item in item['http://www.w3.org/2004/02/skos/core#prefLabel'] if item['@language'] == "en"), None)
+        label += [label_de] if label_de is not None else []
+        label += [label_en] if label_en is not None else []
+        d['label'] = label
+
 
         try:
+          description = []
           description_de = next(
-              (item['@value'] for item in item['http://www.w3.org/2004/02/skos/core#definition'] if item['@language'] == "de"), None)
+              (item for item in item['http://www.w3.org/2004/02/skos/core#definition'] if item['@language'] == "de"), None)
           description_en = next(
-              (item['@value'] for item in item['http://www.w3.org/2004/02/skos/core#definition'] if item['@language'] == "en"), None)
-          if description_de is not None:
-            d['description'] = description_de
-          else:
-            d['description'] = description_en
+              (item for item in item['http://www.w3.org/2004/02/skos/core#definition'] if item['@language'] == "en"), None)
+          description += [description_de] if description_de is not None else []
+          description += [description_en] if description_en is not None else []
+          d['description'] = description
         except:
           d['description'] = ''
           print('no description found')
@@ -58,7 +59,7 @@ class Vocab(Resource):
 
         try:
           for altLabel in item['http://www.w3.org/2004/02/skos/core#altLabel']:
-              altId.append(altLabel['@value'])
+              altId.append(altLabel)
           d['altId'] = altId
         except:
           d['altId'] = ''
