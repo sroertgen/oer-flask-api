@@ -80,6 +80,13 @@ Current implemented vocabs are:
 
 - [Documentation](https://opensalt.net/api/doc/#/)
 
-## Reference
+## Links
 
-- TODO
+- [OpenEduHub metadata scheme](https://sroertgen.github.io/oer-metadata-hub-scheme/draft_version/index.html)
+- [LOMv1.0](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=1032843)
+- [LOMv1.0](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=1532505)
+- [LOM-DE](http://sodis.de/lom-de/LOM-DE.doc)
+- [LOM-EAF](https://sodis.de/lom-eaf/LOM-EAF_v0.3.pdf)
+- [HS-LOM](https://dini-ag-kim.github.io/hs-oer-lom-profil/latest/)
+- [LRMI](https://www.dublincore.org/specifications/lrmi/)
+- [LOM-CH](https://www.educa.ch/sites/default/files/uploads/2018/05/lom-chv2.0_de.pdf)
