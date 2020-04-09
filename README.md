@@ -53,14 +53,33 @@ It returns a JSON in tree strucutre. It providesthe following informations:
 
 This endpooint can be used to get defined vocabulary.
 
+Its outputs are:
+
+- `id`: points to the definition of the vocab
+- `label`: is an array which contains a language property and the respective value in the defined vocabulary
+- `description`: is an array which contains a language property and the respective description of the defined vocabulary
+- `altId`: is an array which contains a language property and the respective alternative labels of the defined vocabulary
+
 Current implemented vocabs are:
 
-- `educationalRole`: <https://www.dublincore.org/vocabs/educationalAudienceRole.ttl>
-- `alignmentType`: <https://www.dublincore.org/vocabs/alignmentType.ttl>
-- `educationalUse`: <https://www.dublincore.org/vocabs/educationalUse.ttl>
-- `interactivityType`: <https://www.dublincore.org/vocabs/interactivityType.ttl>
-- `learningResourceType`: <https://raw.githubusercontent.com/dini-ag-kim/hcrt/master/hcrt.ttl>
+- `/alignmentType` (LRMI)
+- `/category` (LOM-DE + extension)
+- `/discipline` (LOM-DE)
+- `educationalContext` (LOM-DE)
+- `/educationalRole` (LRMI)
+- `/educationalUse`(LRMI)
+- `/intendedEndUserRole` (LOM-DE)
+- `/interactivityType` (LRMI)
+- `/learningResourceType` (LOM-DE)
+- `/lifecycleContributeRole` (LOM-DE)
+- `/rightsCopyrightAndOtherRestrictions` (LOM-DE)
+- `/rightsCost` (LOM-DE)
+- `/sourceContentType` (custom vocab)
 
 ## API documentation for OpenSalt
 
 - [Documentation](https://opensalt.net/api/doc/#/)
+
+## Reference
+
+- TODO

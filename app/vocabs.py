@@ -5,11 +5,19 @@ import rdflib
 # Use the parse functions to point directly at the URI
 
 uris = {
-    'educationalRole': 'https://www.dublincore.org/vocabs/educationalAudienceRole.ttl',
-    'alignmentType': 'https://www.dublincore.org/vocabs/alignmentType.ttl',
-    'educationalUse': 'https://www.dublincore.org/vocabs/educationalUse.ttl',
-    'interactivityType': 'https://www.dublincore.org/vocabs/interactivityType.ttl',
-    'learningResourceType': 'https://raw.githubusercontent.com/dini-ag-kim/hcrt/master/hcrt.ttl'
+    'alignmentType': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/alignmentType.ttl',
+    'category': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/category.ttl',
+    'discipline': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/discipline.ttl',
+    'educationalRole': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/educationalAudienceRole.ttl',
+    'educationalContext': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/educationalContext.ttl',
+    'educationalUse': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/educationalUse.ttl',
+    'intendedEndUserRole': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/intendedEndUserRole.ttl',
+    'interactivityType': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/interactivityType.ttl',
+    'learningResourceType': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/learningResourceType.ttl',
+    'lifecycleContributeRole': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/lifecycleContributeRole.ttl',
+    'rightsCopyrightAndOtherRestrictions': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/rightsCopyrightAndOtherRestrictions.ttl',
+    'rightsCost': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/rightsCost.ttl',
+    'sourceContentType': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/sourceContentType.ttl'
 }
 
 
@@ -25,18 +33,44 @@ class Vocab(Resource):
 
     for item in y:
       try:
-          d = {}
-          d['id'] = item['@id']
-          d['label'] = item['http://www.w3.org/2004/02/skos/core#prefLabel'][0]['@value']
-          try:
-            d['description'] = item['http://www.w3.org/2004/02/skos/core#definition'][0]['@value']
-          except:
-            d['description'] = ''
+        d = {}
+        altId = []
+        d['id'] = item['@id']
+        label = []
+        label_de = next(
+            (item for item in item['http://www.w3.org/2004/02/skos/core#prefLabel'] if item['@language'] == "de"), None)
+        label_en = next(
+            (item for item in item['http://www.w3.org/2004/02/skos/core#prefLabel'] if item['@language'] == "en"), None)
+        label += [label_de] if label_de is not None else []
+        label += [label_en] if label_en is not None else []
+        d['label'] = label
+
+
+        try:
+          description = []
+          description_de = next(
+              (item for item in item['http://www.w3.org/2004/02/skos/core#definition'] if item['@language'] == "de"), None)
+          description_en = next(
+              (item for item in item['http://www.w3.org/2004/02/skos/core#definition'] if item['@language'] == "en"), None)
+          description += [description_de] if description_de is not None else []
+          description += [description_en] if description_en is not None else []
+          d['description'] = description
+        except:
+          d['description'] = ''
+          print('no description found')
+          pass
+
+        try:
+          for altLabel in item['http://www.w3.org/2004/02/skos/core#altLabel']:
+              altId.append(altLabel)
+          d['altId'] = altId
+        except:
+          d['altId'] = ''
+          pass
       except:
-          print("not there")
-      # only append dict if not empty
+          pass
       if d and 'label' in d.keys():
-        vocabs.append(d)
+          vocabs.append(d)
     return vocabs
 
   def get(self, name):
