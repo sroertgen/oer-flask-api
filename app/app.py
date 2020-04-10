@@ -2,6 +2,7 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 from flask_restful import Api
 from vocabs import Vocab
+from vocabs_string import VocabString
 from frameworks import Frameworks
 
 # config
@@ -16,6 +17,7 @@ CORS(app, resources={r'/*': {'origins': '*'}})
 
 # Add Classes to API
 api.add_resource(Vocab, '/vocab/<string:name>')
+api.add_resource(VocabString, '/vocab_string/<string:name>')
 api.add_resource(Frameworks, '/frameworks')
 
 # Run app
