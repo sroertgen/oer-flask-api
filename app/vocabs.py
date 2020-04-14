@@ -2,24 +2,10 @@ from flask_restful import Resource, reqparse
 import json
 import rdflib
 
-# Use the parse functions to point directly at the URI
 
-uris = {
-    'alignmentType': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/alignmentType.ttl',
-    'category': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/category.ttl',
-    'conditionsOfAccess': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/conditionsOfAccess.ttl',
-    'discipline': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/discipline.ttl',
-    'educationalRole': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/educationalAudienceRole.ttl',
-    'educationalContext': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/educationalContext.ttl',
-    'educationalUse': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/educationalUse.ttl',
-    'intendedEndUserRole': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/intendedEndUserRole.ttl',
-    'interactivityType': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/interactivityType.ttl',
-    'learningResourceType': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/learningResourceType.ttl',
-    'lifecycleContributeRole': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/lifecycleContributeRole.ttl',
-    'rightsCopyrightAndOtherRestrictions': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/rightsCopyrightAndOtherRestrictions.ttl',
-    'rightsCost': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/rightsCost.ttl',
-    'sourceContentType': 'https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/sourceContentType.ttl'
-}
+# load the vocab uris
+with open('vocabulary.json', 'r') as f:
+    uris = json.load(f)
 
 
 class Vocab(Resource):

@@ -62,19 +62,24 @@ Its outputs are:
 
 Current implemented vocabs are:
 
-- `/alignmentType` (LRMI)
 - `/category` (LOM-DE + extension)
+- `/conditionsOfAccess` (custom vocab, inspired by <schema.org/conditionsOfAccess>)
+- `/containsAvertisement` (custom vocab)
 - `/discipline` (LOM-DE)
-- `educationalContext` (LOM-DE)
-- `/educationalRole` (LRMI)
-- `/educationalUse`(LRMI)
+- `/educationalContext` (LOM-DE)
 - `/intendedEndUserRole` (LOM-DE)
-- `/interactivityType` (LRMI)
+- `/interface` (custom vocab)
 - `/learningResourceType` (LOM-DE)
 - `/lifecycleContributeRole` (LOM-DE)
 - `/rightsCopyrightAndOtherRestrictions` (LOM-DE)
-- `/rightsCost` (LOM-DE)
+- `/rightsCost` (LOM-DE, added a category "yes_for_additional", which indicates that additional content/features are purchasable)
 - `/sourceContentType` (custom vocab)
+- `/toolCategory` (custom vocab)
+
+## /vocab_string/<string:name>
+
+Same as above, but only outputs id and preferred german label. Sooner or
+later this will be merged with above endpoint and handled via query parameters.
 
 ## API documentation for OpenSalt
 
