@@ -75,6 +75,10 @@ Current implemented vocabs are:
 - `/rightsCost` (LOM-DE, added a category "yes_for_additional", which indicates that additional content/features are purchasable)
 - `/sourceContentType` (custom vocab)
 - `/toolCategory` (custom vocab)
+- `/educationalRole` ([LRMI](https://www.dublincore.org/specifications/lrmi/concept_schemes))
+- `/alignmentType` ([LRMI](https://www.dublincore.org/specifications/lrmi/concept_schemes))
+- `/educationalUse` ([LRMI](https://www.dublincore.org/specifications/lrmi/concept_schemes))
+- `/interactivityType` ([LRMI](https://www.dublincore.org/specifications/lrmi/concept_schemes))
 
 ## /vocab_string/<string:name>
 
