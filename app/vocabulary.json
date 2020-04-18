@@ -11,5 +11,10 @@
   "rightsCopyrightAndOtherRestrictions": "https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/rightsCopyrightAndOtherRestrictions.ttl",
   "rightsCost": "https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/rightsCost.ttl",
   "sourceContentType": "https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/sourceContentType.ttl",
-  "toolCategory": "https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/toolCategory.ttl"
+  "toolCategory": "https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/toolCategory.ttl",
+  "educationalRole": "https://www.dublincore.org/vocabs/educationalAudienceRole.ttl",
+  "alignmentType": "https://www.dublincore.org/vocabs/alignmentType.ttl",
+  "educationalUse": "https://www.dublincore.org/vocabs/educationalUse.ttl",
+  "interactivityType": "https://www.dublincore.org/vocabs/interactivityType.ttl"
+  
 }
