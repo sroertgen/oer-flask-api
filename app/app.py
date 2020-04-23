@@ -4,6 +4,8 @@ from flask_restful import Api
 from vocabs import Vocab
 from vocabs_string import VocabString
 from frameworks import Frameworks
+from frameworks_ld import Frameworks_ld
+
 
 # config
 app = Flask(__name__)
@@ -19,6 +21,7 @@ CORS(app, resources={r'/*': {'origins': '*'}})
 api.add_resource(Vocab, '/vocab/<string:name>')
 api.add_resource(VocabString, '/vocab_string/<string:name>')
 api.add_resource(Frameworks, '/frameworks')
+api.add_resource(Frameworks_ld, '/frameworks_ld/<string:framework>')
 
 # Run app
 if __name__ == '__main__':
