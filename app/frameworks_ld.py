@@ -205,11 +205,11 @@ class Frameworks_ld(Resource):
 
     return competence_frameworks[0]
 
-  def get(self, framework):
+  def get(self, framework=''):
     print(framework)
     if framework == "all":
       response = self.get_all_frameworks()
-    elif framework == "list_of_documents":
+    elif framework == '' or 'list_of_documents':
       response = list_of_documents
     else:
         for item in list_of_documents:

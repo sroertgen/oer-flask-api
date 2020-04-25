@@ -2,7 +2,7 @@
   "category": "https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/category.ttl",
   "conditionsOfAccess": "https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/conditionsOfAccess.ttl",
   "containsAdvertisement": "https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/containsAdvertisement.ttl",
-  "discipline": "https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/discipline.ttl",
+  "discipline": "https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/dev/discipline.ttl",
   "educationalContext": "https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/educationalContext.ttl",
   "intendedEndUserRole": "https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/intendedEndUserRole.ttl",
   "interface": "https://raw.githubusercontent.com/sroertgen/oer-metadata-hub-vocab/master/interface.ttl",
@@ -15,6 +15,6 @@
   "educationalRole": "https://www.dublincore.org/vocabs/educationalAudienceRole.ttl",
   "alignmentType": "https://www.dublincore.org/vocabs/alignmentType.ttl",
   "educationalUse": "https://www.dublincore.org/vocabs/educationalUse.ttl",
-  "interactivityType": "https://www.dublincore.org/vocabs/interactivityType.ttl"
-  
+  "interactivityType": "https://www.dublincore.org/vocabs/interactivityType.ttl",
+  "hochschulfaechersystematik": "https://raw.githubusercontent.com/dini-ag-kim/hochschulfaechersystematik/master/hochschulfaechersystematik.ttl"
 }
