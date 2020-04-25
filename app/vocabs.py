@@ -26,7 +26,7 @@ class Vocab(Resource):
                 label_de = next(
                     (item for item in item['http://www.w3.org/2004/02/skos/core#prefLabel'] if item['@language'] == "de"), None)
                 label_en = next(
-                    (item for item in item['http://www.w3.org/2004/02/skos/core#prefLabel'] if item['@language'] == ("en" or "en-US")), None)
+                    (item for item in item['http://www.w3.org/2004/02/skos/core#prefLabel'] if item['@language'] == "en" or item['@language'] == "en-US"), None)
                 label += [label_de] if label_de is not None else []
                 label += [label_en] if label_en is not None else []
                 d['label'] = label
@@ -38,7 +38,7 @@ class Vocab(Resource):
                 description_de = next(
                     (item for item in item['http://www.w3.org/2004/02/skos/core#definition'] if item['@language'] == "de"), None)
                 description_en = next(
-                    (item for item in item['http://www.w3.org/2004/02/skos/core#definition'] if item['@language'] == ("en" or "en-US")), None)
+                    (item for item in item['http://www.w3.org/2004/02/skos/core#definition'] if item['@language'] == "en" or item['@language'] == "en-US"), None)
                 description += [description_de] if description_de is not None else []
                 description += [description_en] if description_en is not None else []
                 d['description'] = description
