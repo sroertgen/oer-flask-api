@@ -59,7 +59,7 @@ class Vocab(Resource):
             try:
                 subject = item['@id']
                 parents = {}
-                parents['all'] = []
+                parents['implicit'] = []
                 parents = cls.get_parents(g, subject, parents, 0)
 
                 d['parents'] = parents
@@ -76,12 +76,11 @@ class Vocab(Resource):
     def get_parents(cls, graph, subject, parents, iteration):
         for s, p, o in graph.triples((URIRef(subject), SKOS.broader, None)):
             if iteration == 0:
-                parents['direct'] = o
+                parents['primary'] = o
             else:
-                parents['all'].append(o)
+                parents['implicit'].append(o)
             iteration += 1
             return cls.get_parents(graph, o, parents, iteration)
-        parents['all'].append(parents['direct'])
         return parents
 
     def get(self, name):
