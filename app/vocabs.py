@@ -60,6 +60,7 @@ class Vocab(Resource):
                 subject = item['@id']
                 parents = {}
                 parents['implicit'] = []
+                parents['primary'] = ""
                 parents = cls.get_parents(g, subject, parents, 0)
 
                 d['parents'] = parents
